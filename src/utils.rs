@@ -26,3 +26,24 @@ pub fn read_numbers_from_file(path: &str) -> io::Result<Vec<i32>> {
     // Return the vector of numbers
     Ok(numbers)
 }
+
+pub fn read_lines_from_file(path: &str) -> io::Result<Vec<String>> {
+    // Open the file
+    let file = File::open(path)?;
+    
+    // Create a buffered reader
+    let reader = BufReader::new(file);
+    
+    // Initialize a vector to hold the lines
+    let mut lines = Vec::new();
+    
+    // Iterate over each line in the file
+    for line in reader.lines() {
+        // Each line is a Result<String, io::Error>
+        let line = line?; // Handle the Result, propagating errors
+        lines.push(line);
+    }
+    
+    // Return the vector of lines
+    Ok(lines)
+}
