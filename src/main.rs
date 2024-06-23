@@ -1,6 +1,7 @@
 mod day1;
 mod day2;
 mod day3;
+mod day4;
 mod utils;
 
 fn main() {
@@ -13,4 +14,8 @@ fn main() {
 
     println!("Day3: ");
     let _ = day3::day_three();
+
+    println!("Day4: ");
+    let _ = day4::day_four();
+
 }
